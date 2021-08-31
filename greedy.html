@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>E-Learning</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="style.css" rel="stylesheet">
+	
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+<div class="container-fluid">
+	<a class="navbar-brand" href="#"><img src="img/logo1.png"></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+	data-target="#navbarResponsive">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarResponsive">
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="index.html">Acasa</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="index.html">Despre Noi</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="greedy.html">Cursuri</a>
+            </li>
+            <li class="nav-item">
+				<a class="nav-link" href="simulare.html">Simulare</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="start.html">Quiz</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#contact">Contact</a>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+</nav>
+
+
+
+
+<!--- Info -->
+
+
+
+<hr class="my-4">
+	<div id="curs" class="container-fluid-logo padding">
+		<div class="row padding">
+			<div class="col-md-12 text-justify">
+				<h3 style="text-indent:40px">Metoda Greedy</h3>
+				<br>
+				<h5 class="ml-3">Consideratii teoretice</h5>
+				<br>
+				<h class="lead ml-4">Explicarea numelui</h>
+				<br>
+	            <p class="mr-3">In limba engleza cuvantul greedy inseamna lacom. Algoritmii de tip greedy sunt algoritmi lacomi. Ei vor sa construiasca intr-un mod cat mai rapid solutia problemei, fara a sta mult pe ganduri. </p>
+				<br>
+				<p class="mr-3">Algoritmii de tip greedy se caracterizeaza prin luarea unor decizii rapide care duc la gasirea unei solutii a problemei. Nu intotdeauna asemenea decizii rapide duc la o solutie optima, dar vom vedea ca exista anumite tipuri de probleme unde se pot obtine solutii optime sau foarte apropiate de optim.</p>
+				<br>
+				<h class="lead ml-4">Aplicabilitatea algoritmilor de tip Greedy</h>
+				<br>
+                <p class="mr-3">Algoritmii de tip Greedy se aplica la acele probleme unde datele de intrare sunt organizate sub forma unei multimi A si se cere gasirea unei submultimi B A care sa indeplineasca anumite conditii astfel incat sa fie acceptata ca solutie posibila.</p>
+				<br>
+				<p class="mr-3">In general pot sa existe mai multe submultimi B A care sa reprezinte solutii posibile ale problemei. Dintre toate aceste submultimi B se pot selecta, conform unui anumit criteriu, anumite submultimi B* care reprezinta solutii optime ale problemei. Scopul este de a gasi, daca este posibil, una din multimile B*. Daca acest lucru nu este posibil, atunci scopul este gasirea unei multimi B care sa fie cat mai aproape de multimile B*, conform criteriului de optimalitate impus.</p>
+				<br>
+				<h class="lead ml-4">Modul de lucru al algoritmilor de tip Greedy</h>
+				<br>
+                <p class="mr-3">Construirea multimii B se face printr-un sir de decizii. Initial se porneste cu multimea vida (B = Ø). Fiecare decizie consta in alegerea unui element din multimea A, analiza lui si eventual introducerea lui in multimea B. In functie de modul in care se iau aceste decizii, multimea B se va apropia mai mult sau mai putin de solutia optima B*. In cazul ideal vom avea B = B*.</p>
+				<br>
+				<p class="mr-3">Algoritmii de tip greedy nu urmaresc sa determine toate solutiile posibile si sa aleaga dintre ele, conform criteriului de optimalitate impus, solutiile optime. Dupa cum spune si numele, algoritmii de tip greedy sunt caracterizati prin lacomie si nu au rabdarea sa investigheze toate variantele posibile de alegere a solutiei. Ei incep construirea unei solutii pornind de la multimea vida, apoi lucreaza in pasi, intr-un mod cat se poate de hotarat: la fiecare pas se ia cate o decizie si se extinde solutia cu cate un element.</p>
+				<br>
+				<p class="mr-3">La fiecare pas se analizeaza cate un element din multimea A si se decide daca sa fie sau nu inclus in multimea B care se construieste. Astfel se progreseaza de la Ø cu un sir de multimi intermediare (Ø, B0, B1, B2, ), pana cand se obtine o solutie finala B.</p>
+				<br>
+				<h class="lead ml-4">Implementare</h>
+				<br>
+				<p class="mr-3">Ca si schema generala de lucru, exista doua variante de implementare a algoritmilor de tip Greedy.</p>
+				<br>
+				<p class="mr-3">Prima varianta foloseste doua functii caracteristice: alege si posibil. alege este o functie care are rolul de a selecta urmatorul element din multimea A care sa fie prelucrat. Functia posibil verifica daca un element poate fi adaugat solutiei intermediare Bi astfel incat noua solutie Bi+1 care s-ar obtine sa fie o solutie valida. Prezentam in continuare pseudocodul pentru aceasta prima varianta greedy. Se considera ca numarul de elemente al multimii A este n.</p>
+                <p class="text-danger">B = multimea vida </p>
+				<p class="text-danger">for (i=0; i < n; i++) </p>
+				<br>
+                <p class="mr-3">Dificultatea la aceasta prima varianta consta in scrierea functiei alege. Daca functia alege este bine conceputa, atunci putem fi siguri ca solutia B gasita este o solutie optima. Daca functia alege nu este foarte bine conceputa, atunci solutia B gasita va fi doar o solutie posibila si nu va fi optima. Ea se poate apropia insa mai mult sau mai putin de solutia optima B*, in functie de criteriul de selectie implementat.</p>
+				<br>
+				<p class="mr-3">A doua varianta de implementare difera de prima prin faptul ca face o etapa initiala de prelucrare a multimii A. Practic se face o sortare a elementelor multimii A, conform unui anumit criteriu. Dupa sortare, elementele vor fi prelucrate direct in ordirea rezultata. Prezentam in continuare pseudocodul pentru aceasta a doua varianta greedy.</p>
+				<p class="text-danger">B = multimea vida</p>
+				<p class="text-danger">prelucreaza(A)</p>
+				<p class="text-danger">for (i=0; i < n; i++)</p>
+				<br>
+			    <p class="mr-3">La a doua varianta, dificultatea functiei alege nu a disparut, ci s-a transferat functiei prelucreaza. Daca prelucrarea multimii A este bine facuta, atunci se va ajunge in mod sigur la o solutie optima. Altfel se va obtine doar o solutie posibila, mai mult sau mai putin apropiata de optim.</p>
+				<br>
+				<h5 class="ml-3">Exemple</h5>
+				<br>
+				<h class="lead ml-4">Problema comis-voiajorului</h>
+				<br>
+				<br>
+				<p class="mr-3">Enunt: Se condidera n orase. Se cunosc distantele dintre oricare doua orase. Un comis-voiajor trebuie sa treaca prin toate cele n orase. Se cere sa se determine un drum care porneste dintr-un oras, trece exact o data prin fiecare din celelalte orase si apoi revine la primul oras, astfel incat lungimea drumului sa fie minima.</p>
+				<br>
+				<p class="mr-3">Rezolvare: Pentru gasirea unei solutii optime la aceasta problema este nevoie de algoritmi cu timp de rulare foarte mare (de ordin exponential O(2n)). In situatiile practice asemenea algoritmi cu timp foarte mare de rulare nu sunt acceptabili. Ca urmare se face un compromis si se accepta algoritmi care nu gasesc solutia optima ci doar o solutie aproape de optim, dar au in schimb un timp de rulare mic. Propunem in continuare o solutie greedy la aceasta problema. Ideea este urmatoarea. Se porneste dintr-un oras oarecare. Se cauta drumul cel mai scurt care pleaca din orasul respectiv catre orase nevizitate inca. Se parcurge acel drum si se ajunge intr-un alt oras. Aici din nou se cauta cel mai scurt drum catre orasele nevizitate inca. Se parcurge si acest drum, ajungandu-se intr-un nou oras. Repetand acesti pasi se parcurg toate orasele. La final se parcurge drumul care duce inapoi spre primul oras.</p>
+				<br>
+				<p class="mr-3">Sa consideram exemplul din figura urmatoare. Avem 4 orase cu distantele reprezentate in figura.</p>
+			    </div>
+			       <div class="col-lg-8">
+				   <img src="img/fig1.jpg" class="img-fluid">
+				</div>
+				<br>
+				<div id="code" class="container-fluid-logo padding">
+					<div class="row padding">
+						<div class="col-md-12 text-justify">
+					<p>int main(void)</p>
+                    <p>/* Citim datele din fisier. */</p>
+					<p>fscanf(fin, '%d', &n);</p>
+					<p>for (i=0; i < n; i++) </p>
+					<p>for (j=0; j < n; j++) </p>
+					<p>fscanf(fin, '%d', &(d[i][j]));</p>
+					<p>/* Afisam pe ecran datele preluate din fisier. */</p> 
+					<p>printf('Avem %d orase.n', n);</p>
+					<p>printf('Distantele dintre orase sunt:n');</p>
+					<p>for (i=0; i < n; i++)</p>
+					<p>printf('n');</p>
+					<p>/* Initial nici un oras nu este vizitat. */</p>
+					<p>for (i=0; i < n; i++)</p>
+					<p>vizitat[i] = 0;</p>
+					<p>/* Primul oras vizitat este cel cu numarul '0'. Costul total este zero deocamdata. */</p>
+					<p>drum[0] = 0;</p>
+					<p>vizitat[0] = 1;</p>
+					<p>count = 1;</p>
+					<p>cost = 0;</p>
+					<p>/* Parcurgem restul de n-1 orase. */</p>
+					<p>for (i=0; i < n-1; i++)</p>
+					<p>/* Parcurgem drumul de la ultimul oras vizitat catre primul oras si actualizam costul total. */</p>
+					<p>cost += d[drum[n-1]][0];</p>
+					<p>/* Afisam drumul parcurs. */</p>
+					<p>printf('nDrumul are costul %d si este:n', cost);</p>
+					<p>for (i=0; i < n; i++)</p>
+					<p>printf('%d ', drum[i]);</p>
+					<p>printf('0n');</p>
+					<p>return 0;</p>
+					<br>
+					<br>
+					<p>Un scurt video despre problema rucsacului:</p>
+				       </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- video-->
+<div class="embed-responsive embed-responsive-16by9">
+	<iframe class="embed-responsive-item" src="img/123.mp4"></iframe>
+  </div>
+ 
+<hr class="my-4">
+
+
+
+
+
+
+<!--- Contact -->
+<div id="contact" class="container-fluid padding">
+	<div class="row text-center padding">
+		<div class="col-12">
+			<h2>Contacte</h2>
+		</div>
+		<div class="col-12 social padding">
+			<a href="#"><i class="fab fa-facebook"></i></a>
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-google-plus-g"></i></a>
+			<a href="#"><i class="fab fa-instagram"></i></a>
+			<a href="#"><i class="fab fa-youtube"></i></a>
+		</div>
+	</div>
+</div>
+
+<!--- Footer -->
+<footer>
+	<div class="container-fluid padding">
+		<div class="row text-center">
+			<div class="col-md-6">
+				<img src="img/logo1.png">
+				<hr class="light">
+				<p>0700000000</p>
+				<p>mail@gmail.com</p>
+				<p>Str X Nr.18</p>
+				<p>X, Dolj, 200396</p>
+			</div>
+			<div class="col-md-6">
+				<hr class="light">
+				<h5>Program</h5>
+				<hr class="light">
+				<p>Luni-Vineri: 12:00-18:00</p>
+				<p>Sambata: 15:00-17:00</p>
+				<p>Duminica: Inchis</p>
+			</div>
+			<div class="col-12">
+				<hr class="light-100">
+				<h5>&copy; E-Learning.com</h5>
+			</div>
+		</div>
+	</div>
+</footer>
+
+</body>

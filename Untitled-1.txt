@@ -1,0 +1,9 @@
+<head>
+<title> Formatarea textului in head</title>
+<style type="text/css">
+p {color: white; font-family: verdana,arial; font-size:14px; background-color: purple;}
+</style>
+</head>
+<body>
+...
+<p>Text imprimat pe fond purpuriu.</p>
